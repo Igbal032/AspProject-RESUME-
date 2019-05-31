@@ -1,0 +1,42 @@
+﻿@model IEnumerable<AspFinalProject.Models.Entity.Skills>
+
+@foreach (var item in Model)
+{
+
+    <!-- HARD SKILLS -->
+    <h6>@item.Category</h6>
+
+    <!-- Sound Engineering -->
+    <div class="panel-group accordion" id="accordion">
+        <div class="panel panel-default">
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- PANEL HEADING -->
+                    <div class="panel-heading">
+                        <form action="@Url.Action(" DeleteSkill","Edit")" method="post">
+                            <input type="hidden" value="@item.Id" name="id" />
+                            <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion1" href="#@item.Id" class="" aria-expanded="true">@item.TypeOfSkill</a> </h4>
+                            <br /><br />
+                            <button class="btn btn-success btn-sm" type="submit" id="clickForDelete">Delete</button>
+                            <button type="button" class="btn btn-primary" onclick="editBioAndSkill(@item.Id)" id="openEditModal"> Edit </button>
+
+                        </form>
+                    </div>
+                </div>
+                <!-- Skillls Bars -->
+                <div class="col-sm-8">
+                    <div class="progress">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="@item.SkillLevel" aria-valuemin="0" aria-valuemax="100" style="width: @item.SkillLevel%;"> <span class="sr-only">@item.SkillLevel</span> </div>
+                    </div>
+
+                    <!-- Skillls Text -->
+                    <div id="@item.Id" class="panel-collapse collapse in" aria-expanded="true" style="">
+                        <div class="panel-body">
+                            <p>@item.SkillDescription</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,0 +1,192 @@
+﻿@model IEnumerable<AspFinalProject.Models.Entity.AcademicBackground>
+
+
+
+<script>
+
+function a(id) {
+            console.log(id)
+
+      $("#editBack").modal('show')
+
+            $.ajax({
+
+                url: '@Url.Action("editAcademicBack","Edit")',
+                type: "GET",
+                data: { id: id },
+                success: function (response) {
+                    $("#insertid").val(response.Id)
+                    $(".qualificationTexttt").val(response.Qualification)
+                    $(".degreeTexttt").val(response.Degree)
+                    $(".instituteTexttt").val(response.UniversityName)
+                    $(".obtentionTexttt").val(response.YearOfObtention)
+                    $(".detailsTexttt").val(response.Details)
+
+                    console.log(response.Qualification)
+                },
+                error: function (response) {
+                     console.error(response)
+                }
+            })
+        }
+
+</script>
+
+<h5 class="tittle">Academic Background</h5>
+<div class="padding-30 exp-history acBackList">
+
+
+    @foreach (var item in Model)
+    {
+        <form action="@Url.Action("DeletedBackground","Edit")" method="post">
+
+            <div class="exp">
+                <div class="media-left"> <span class="sun">@item.Qualification</span> </div>
+
+
+                <div class="media-body">
+                    <!-- COmpany Logo -->
+                    <div class="company-logo" style="width:100px; height:100px">
+                        <input name="fileName" id="fileName"
+                               value="@(string.IsNullOrWhiteSpace(item.imgPathAc)?"":Href("~/Template/media/Profile/"+item.imgPathAc))"
+                               type="hidden" />
+                        <img src="@(string.IsNullOrWhiteSpace(item.imgPathAc)?"":Href("~/Template/media/AcademicBackground/"+item.imgPathAc))" class="img-responsive" alt=""> <span></span>
+                    </div>
+                    <h6>@item.UniversityName</h6>
+                    <p>@item.YearOfObtention</p>
+                    <p>@item.Degree</p>
+                    <p class="margin-top-10"> @item.Details</p>
+                </div>
+                <br />
+                <input type="hidden" value="@item.Id" name="id" id="clickEdit" />
+                <button class="btn btn-danger btn-sm" type="submit" id="clickForDelete">Delete</button>
+            
+                <button type="button" class="btn btn-primary" onclick="a(@item.Id)" id="openEditModal" @*data-toggle="modal" data-target="#editBack"*@> Edit </button>
+
+                <br /><br />
+            </div>
+        </form>
+    }
+</div>
+<!-- ADD EXP -->
+<form method="post" action="@Url.Action("AddAcademicBacground","Edit")" enctype="multipart/form-data">
+    <div class="exp">
+        <div class="row">
+            <div class="col-sm-7">
+                <label>
+                    Qualification
+                    <input type="text" name="qualification" class="form-control qualificationText " placeholder="YYYY - YYYY">
+                </label>
+                <label>
+                    Degree
+                    <input type="text" name="degree" class="form-control degreeText " placeholder="">
+                </label>
+                <label>
+                    Institute / University Name
+                    <input type="text" name="universityname" class="form-control instituteText" placeholder="">
+                </label>
+                <label>
+                    Year of Obtention
+                    <input type="text" name="yearofobtention" class="form-control obtentionText" placeholder="">
+                </label>
+            </div>
+
+
+            <!-- UPLOAD IMG -->
+            <div class="col-sm-5">
+                <label class="image-container btn-file">
+                    <i class="fa fa-camera"></i> Click to attach logo
+                    <input class="img-responsive form-control-sm" type="file" style="" accept="image/*" , onchange="readURL(this)" id="mediaUrl" name="imgPath" value="Click" />
+                    <a href="javascript:removePhoto()"><i class="clear-icon header-right-button"></i></a>
+                </label>
+            </div>
+
+            <!-- ADD DETAIL -->
+            <div class="col-sm-12">
+                <label>
+                    Details
+                    <textarea class="form-control detailsText" name="details" placeholder=""></textarea>
+                </label>
+                <!-- ADD MORE -->
+                <button class="btn margin-top-20" type="submit"><i class="fa fa-plus"></i> Add Academic Background</button>
+                <p class="font-weight-bold" style="color:red">@TempData["Fill all Inputs AcBack"]</p>
+
+            </div>
+            <div id="alertAboutAcBackgroun" class="col-md-12">
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<!-- Button trigger modal -->
+<!-- Modal -->
+<div class="modal fade" id="editBack" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input id="insertid" type="hidden"/>
+                <label> Qualification</label>
+                <input type="text" name="qualification" class="form-control qualificationTexttt qualificationTextt " placeholder="YYYY - YYYY">
+                <label> Degree </label>
+                <input type="text" name="degree" class="form-control degreeTexttt degreeTextt" placeholder="">
+                <label>Institute / University Name </label>
+                <input type="text" name="universityname" class="form-control instituteTexttt instituteTextt" placeholder="">
+                <label>Year of Obtention </label>
+                <input type="text" name="yearofobtention" class="form-control obtentionTexttt obtentionTextt" placeholder="">
+                <label> Details</label>
+                <textarea class="form-control detailsTexttt detailsTextt" name="details" placeholder=""></textarea>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" id="editAc" class="btn btn-primary">Edit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $("#editAc").on("click", function () {
+              console.log($('#clickEdit').val())
+
+        $.ajax({
+            url: '@Url.Action("saveEditAcademicBack","Edit")',
+            type: "POST",
+            data: {
+                id: $('#insertid').val(),
+                universityname: $(".instituteTextt").val(),
+                yearofObtention : $(".obtentionTextt").val(),
+                details : $(".detailsTextt").val(),
+                degree : $(".degreeTextt").val(),
+                qualification : $(".qualificationTextt").val()
+
+            },
+            success: function (response) {
+                $(".acBackList").html(response)
+                      $("#editBack").modal('hide')
+
+                 swal({
+                title: "Good job!",
+                text: "You edit information!",
+                icon: "success",
+                button: "Aww yiss!",
+                    }); 
+            },
+            error: function (response) {
+                console.log("sadas")
+                console.error(response)
+            }
+        });
+
+    });
+
+
+</script>

@@ -1,0 +1,91 @@
+﻿@using AspFinalProject.Models
+@model IEnumerable<AspFinalProject.Models.Entity.Contact>
+
+@{
+    myCvDbContext db = new myCvDbContext();
+    var person = db.Person.FirstOrDefault();
+    int count = 0;
+    var isNotRaad = db.Contact.Where(c => c.isRead == false).ToList();
+    foreach (var item in isNotRaad)
+    {
+        count++;
+    }
+
+}
+
+
+<div class="header-wrap">
+    <form class="form-header" action="" method="POST">
+        <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+        <button class="au-btn--submit" type="submit">
+            <i class="zmdi zmdi-search"></i>
+        </button>
+    </form>
+    <div class="header-button">
+        <div class="noti-wrap">
+            <div class="noti__item js-item-menu">
+                <i class="zmdi zmdi-comment-more"></i>
+                <span class="quantity">@count</span>
+                <div class="mess-dropdown js-dropdown">
+                    <div class="mess__title">
+                        <p>You have @count news message</p>
+                    </div>
+                    <div class="mess__item row">
+                        @if (count != 0)
+                        {
+                            foreach (var item in db.Contact.Where(c=>c.isRead==false).ToList())
+                            {
+                                <div class="content col-12">
+                                    <h6 class="font-weight-bold">@item.UserName</h6>
+                                    <p>@item.Message &nbsp; @item.SendingDate.ToShortDateString() &nbsp; @item.SendingDate.ToShortTimeString()</p>
+                                </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="mess__footer">
+                        <a href="@Url.Action("Index","Contacts", new { area="Admin"})">View all messages</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="account-wrap">
+            <div class="account-item clearfix js-item-menu">
+                <div class="image">
+                    <img src="@(string.IsNullOrWhiteSpace(person.imgPath)?"":Href("~/Template/media/Profile/"+person.imgPath))" alt="John Doe" />
+                </div>
+                <div class="content">
+                    <a class="js-acc-btn" href="#">@person.FullName</a>
+                </div>
+                <div class="account-dropdown js-dropdown">
+                    <div class="info clearfix">
+                        <div class="image">
+                            <a href="#">
+                                <img src="@(string.IsNullOrWhiteSpace(person.imgPath)?"":Href("~/Template/media/Profile/"+person.imgPath))" alt="John Doe" />
+                            </a>
+                        </div>
+                        <div class="content">
+                            <h5 class="name">
+                                <a href="#">@person.FullName</a>
+                            </h5>
+                            <span class="email">@person.Email</span>
+                        </div>
+                    </div>
+                    <div class="account-dropdown__body">
+                        <div class="account-dropdown__item">
+                            <a href="@Url.Action("ChangePassword","Admin")">
+                                <i class="zmdi zmdi-account"></i>Change Password
+                            </a>
+                        </div>
+                    </div>
+                    <div class="account-dropdown__footer">
+                        <a  href="@Url.Action("LogOut","Admin")">
+                            <i class="zmdi zmdi-power"></i>Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

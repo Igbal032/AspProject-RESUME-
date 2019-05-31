@@ -1,0 +1,31 @@
+﻿@{ 
+    var count = 0;
+    var db =  new AspFinalProject.Models.myCvDbContext().Contact.Where(w=>w.DeletedDate==null&&w.isRead==false).ToList();
+    foreach (var item in db)
+    {
+        count++;
+    }
+}
+s
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="#">
+            <img src="~/Areas/Admin/Template/images/icon/logo.png" alt="Cool Admin" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                <li>
+                    <a href="@Url.Action("Index", "Home", new { Area = "" })"> <i class="icon-pencil"></i>Back TO Main Page</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("EditPage","Edit", new { Area = "Admin" })">Edit CV</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("Index","Contacts", new { Area = "Admin" })" > All Messages &nbsp; <span class="font-weight-bold">@count</span> </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</aside>

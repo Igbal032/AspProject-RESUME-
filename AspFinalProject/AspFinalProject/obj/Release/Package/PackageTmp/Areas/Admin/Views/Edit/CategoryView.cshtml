@@ -1,0 +1,26 @@
+﻿@model  IEnumerable<AspFinalProject.Models.Entity.Category>
+
+
+    <input type="hidden" id="categoryIdInput" name="categories" value="" class="categoriesName" />
+    <select id="categoryPicer" class="selectpicker ">
+
+        <option disabled selected value="">All Categories</option>
+        @foreach (var item in Model)
+        {
+            <option id="@item.Id" value="@item.Id">@item.Name</option>
+
+        }
+
+    </select>
+<span id="addCategory" class="add-custm">or <a href="#."> Add A Custom Category OR Delete</a></span>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    $("#categoryPicer").change(function () {
+        var selected = $(this).children("option:selected").val();
+        $("#categoryIdInput").val(selected);
+    });
+
+</script>
+
+

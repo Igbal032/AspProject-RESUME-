@@ -1,0 +1,24 @@
+2019-05-31 12:07:47.6084 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 12:47:10.6886 FATAL    -The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value.
+The statement has been terminated. 
+2019-05-31 12:48:56.7988 FATAL    -The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value.
+The statement has been terminated. 
+2019-05-31 12:52:40.1316 FATAL    -The conversion of a datetime2 data type to a datetime data type resulted in an out-of-range value.
+The statement has been terminated. 
+2019-05-31 15:03:50.2953 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:04:15.0387 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:17:56.7453 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:18:28.2908 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:30:15.5329 FATAL    -The parameters dictionary contains a null entry for parameter 'skilllevel' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult saveEditBioAndSkill(System.Nullable`1[System.Int32], System.String, Int32, Boolean, Boolean, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32])' in 'AspFinalProject.Areas.Admin.Controllers.EditController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters 
+2019-05-31 15:31:35.4188 FATAL    -The parameters dictionary contains a null entry for parameter 'skilllevel' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult saveEditBioAndSkill(System.Nullable`1[System.Int32], System.String, Int32, Boolean, Boolean, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32])' in 'AspFinalProject.Areas.Admin.Controllers.EditController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters 
+2019-05-31 15:32:22.9891 FATAL    -The parameters dictionary contains a null entry for parameter 'skilllevel' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult saveEditBioAndSkill(System.Nullable`1[System.Int32], System.String, Int32, Boolean, Boolean, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32])' in 'AspFinalProject.Areas.Admin.Controllers.EditController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters 
+2019-05-31 15:38:05.1204 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:46:57.2511 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:49:38.9116 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 15:50:53.3792 FATAL    -Object reference not set to an instance of an object. 
+2019-05-31 16:10:13.1204 FATAL    - 
+2019-05-31 16:11:40.4389 FATAL    - 
+2019-05-31 21:38:49.3923 FATAL    -Invalid value for key 'integrated security'. 

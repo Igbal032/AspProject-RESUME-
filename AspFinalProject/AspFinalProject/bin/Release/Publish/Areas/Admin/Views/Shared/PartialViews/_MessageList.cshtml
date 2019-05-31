@@ -1,0 +1,34 @@
+﻿@model IEnumerable <AspFinalProject.Models.Entity.Contact>
+
+
+@foreach (var item in Model)
+{
+
+    <tr style="@Html.Raw(item.isRead==false?"font-weight:bold" : "")">
+        <td>
+             @Html.DisplayFor(modelItem => item.FromEmail, new { @class = "mFromEmail" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject, new { @class = "mSubject" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message, new { @class = "mMessage" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SendingDate, new { @class = "mSendingDate" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Answer, new { @class = "mAnswer" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isAnswered, new { @class = "misAnswered" })
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isRead, new { @class = "misRead" })
+        </td>
+        <td>
+            <button id="answer" class="btn btn-sm btn-primary" onclick="answerMessage(@item.Id)" ><i class="fas fa-info-circle"></i></button>
+            <button class="btn btn-sm btn-danger" onclick="deleteMessage(@item.Id)"><i class="fas fa-trash-alt"></i></button>
+        </td>
+    </tr>
+}

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<AspFinalProject.Models.Entity.AcademicBackground>
+
+@foreach (var item in Model)
+{
+    <form action="@Url.Action("DeletedBackground","Edit")" method="post">
+
+
+        <div class="exp">
+            <div class="media-left"> <span class="sun">@item.Qualification</span> </div>
+
+
+            <div class="media-body">
+                <!-- COmpany Logo -->
+                <div class="company-logo" style="width:100px; height:100px">
+                    <img src="@(string.IsNullOrWhiteSpace(item.imgPathAc)?"":Href("~/Template/media/AcademicBackground/"+item.imgPathAc))" class="img-responsive" alt=""> <span></span>
+                </div>
+                <h6>@item.UniversityName</h6>
+                <p>@item.YearOfObtention</p>
+                <p>@item.Degree</p>
+                <p class="margin-top-10"> @item.Details</p>
+            </div>
+            <br />
+            <input type="hidden" value="@item.Id" name="id" id="clickEdit" />
+            <button class="btn btn-danger btn-sm" type="submit" id="clickForDelete">Delete</button>
+
+            <button type="button" class="btn btn-primary" onclick="a(@item.Id)" id="openEditModal" @*data-toggle="modal" data-target="#editBack"*@> Edit </button>
+
+            <br /><br />
+        </div>
+    </form>
+}

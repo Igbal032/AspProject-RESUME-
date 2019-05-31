@@ -1,0 +1,253 @@
+﻿@model IEnumerable<AspFinalProject.Models.Entity.Contact>
+
+
+
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@section scripts{
+
+    <script>
+        function answerMessage(id) {
+                $("#modalAnswer").modal("show")
+
+            $.ajax({
+
+                url: "@Url.Action("Answer","Contacts", new { area = "Admin"})/"+id,
+                type: "GET",
+                success: function (response) {
+                    $("#modalID").val(response.Id);
+                    $("#fromMail").val(response.FromEmail);
+                    $("#Subject").val(response.Subject);
+                    $("#SendedMessage").val(response.Message);
+                    $("#AnsweredMessage").val(response.Answer);
+                },
+                error: function (response) {
+
+                },
+
+            })
+        }
+
+          function sendAnsweredMessage(ID) {
+
+             $.ajax({
+
+                url: "@Url.Action("sendAnsweredMessage","Contacts", new { area = "Admin"})",
+                 type: "POST",
+                 data: {
+                     id: ID,
+                     answeredMessage: $("#AnsweredMessage").val()
+                    },
+                success: function (response) {
+                    swal({
+                    title: "Good job!",
+                    text: "You sent the Message!",
+                    icon: "success",
+                    button: "Aww yiss!",
+
+                    });
+                     $("#modalAnswer").modal("hide")
+
+                    $("#messageTable").html(response);
+
+                },
+                error: function (response) {
+                    console.error(response)
+                },
+
+            })
+
+        }
+        function deleteMessage(id) {
+         console.log(id)
+           $("#modalForConfirmation").modal('show');
+
+           $.ajax({
+
+                url: "@Url.Action("Delete","Contacts", new { area = "Admin"})/"+id,
+                type: "GET",
+               success: function (response) {
+                   console.log(response.Id)
+                   $("#modalIDForDelete").val(response.Id)
+                   
+                     $("#modalAnswer").modal("hide")
+               },
+               error: function (response) {
+
+                   console.error(response)
+               }
+            })
+
+        }
+
+        //TO DO
+        function deleteMessageConfirm(ID) {
+            $.ajax({
+                url: '@Url.Action("DeleteConfirmed","Contacts")',
+                type: "POST",
+                data: {
+                    id:ID
+                },
+                success: function (response) {
+                    $("#messageTable").html(response)
+                    // swal({
+                    //title: "Good job!",
+                    //text: "You deleted the Message!",
+                    //icon: "success",
+                    //button: "Aww yiss!",
+
+                    // });
+                    $("#modalForConfirmation").modal('hide');
+                },
+                error: function (response) {
+                    console.error(response)
+                }
+            })
+        }
+
+
+        function closeModal(id) {
+
+            $.ajax({
+
+                url: "@Url.Action("closeModal", "Contacts", new { area = "Admin" })/"+id,
+
+                success: function (response){
+                     $("#messageTable").html(response)
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+})
+        }
+
+      
+
+    </script>
+
+}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.FromEmail)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Subject)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Message)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.SendingDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Answer)
+                    </th>
+                
+                </tr>
+
+                <tbody id="messageTable">
+                    @foreach (var item in Model)
+                    {
+
+                        <tr style="@Html.Raw(item.isRead==false?"font-weight:bold" : "")">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FromEmail, new { @class = "mFromEmail" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Subject, new { @class = "mSubject" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Message, new { @class = "mMessage" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.SendingDate, new { @class = "mSendingDate" })
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Answer, new { @class = "mAnswer" })
+                            </td>
+                        
+                            <td>
+
+                                <button id="answer" class="btn btn-sm btn-primary" onclick="answerMessage(@item.Id)" @*href="@Url.Action("Details","Contacts", new { id = item.Id })"*@><i class="fas fa-info-circle"></i></button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteMessage(@item.Id)"><i class="fas fa-trash-alt"></i></button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+
+            </table>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="modal" id="modalAnswer" tabindex="-1" role="dialog">
+    <form>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content container">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" id="modalID" name="answer" class="form-control" disabled">
+
+                    <label for="newName">From</label>
+                    <input type="text" class="form-control" name="fromemail" disabled id="fromMail">
+
+                </div>
+                <div class="form-group">
+                    <label for="newName">Subject</label>
+                    <input type="text" class="form-control" name="subject" disabled id="Subject">
+
+                </div>
+                <div class="form-group">
+                    <label for="newName">Message</label>
+                    <textarea type="text" class="form-control" name="message" disabled id="SendedMessage"></textarea>
+
+                </div>
+                <div class="form-group">
+                    <label for="newName">Ansewer</label>
+                    <textarea type="text" class="form-control" name="answer" id="AnsweredMessage"></textarea>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="sendAnsweredMessage($('#modalID').val())" class="btn btn-primary">Send</button>
+                    <button type="button" class="btn btn-secondary" onclick="closeModal($('#modalID').val())" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="modal" id="modalForConfirmation" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <input type="hidden" id="modalIDForDelete" name="confirmDelete" class="form-control" disabled">
+
+                <h5 class="modal-title">Are you sure ?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer">
+                <button onclick="deleteMessageConfirm($('#modalIDForDelete').val())" class="btn btn-primary">Delete</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

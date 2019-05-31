@@ -1,0 +1,451 @@
+﻿
+@model IEnumerable<AspFinalProject.Models.Entity.Skills>
+
+<div class="inside-sec">
+    <!-- BIO AND SKILLS -->
+    <h5 class="tittle">Bio & Skills</h5>
+    <div class="bio-info padding-30">
+        <div class="addBioAndSkillListt">
+            @foreach (var item in Model)
+            {
+                
+                <!-- HARD SKILLS -->
+                <h6>@item.Category</h6>
+
+                <!-- Sound Engineering -->
+                <div class="panel-group accordion" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <!-- PANEL HEADING -->
+                                <div class="panel-heading">
+                                    <form action="@Url.Action("DeleteSkill","Edit")" method="post">
+                                        <input type="hidden" value="@item.Id" name="id" />
+                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion1" href="#@item.Id" class="" aria-expanded="true">@item.TypeOfSkill</a> </h4>
+                                        <br /><br />
+                                        <button class="btn btn-success btn-sm" type="submit" id="clickForDelete">Delete</button>
+                                        <button type="button" class="btn btn-primary" onclick="editBioAndSkill(@item.Id)" id="openEditModal"> Edit </button>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <!-- Skillls Bars -->
+                            <div class="col-sm-8">
+                                <div class="progress">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="@item.SkillLevel" aria-valuemin="0" aria-valuemax="100" style="width: @item.SkillLevel%;"> <span class="sr-only">@item.SkillLevel</span> </div>
+                                </div>
+
+
+                                <!-- Skillls Text -->
+                                <div id="@item.Id" class="panel-collapse collapse in" aria-expanded="true" style="">
+                                    <div class="panel-body">
+                                        <p>@item.SkillDescription</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <form action="@Url.Action("addSkillsClick","Edit")" method="post">
+            <div>
+                <div>
+                    <textarea class="form-control" name="yourdescription" placeholder="Write your description here"></textarea>
+                    <div class="skills margin-top-50">
+
+                        <!-- SKILLS -->
+                        <h6>Add A Skill</h6>
+
+                        <!-- Sound Engineering -->
+                        <div class="row">
+
+                            <!-- Categories -->
+                            <div class="col-sm-6">
+                                @Html.Action("CategoryView", "Edit")
+                            </div>
+                            <!--  Skills -->
+                            <div class="col-sm-6 " id="dropSkillsId">
+                                @Html.Action("TypeOfSkillsView", "Edit")
+                            </div>
+                        </div>
+                        <!-- Disply Type -->
+                        <div class="disply-type">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="inlineRadio1" value="true" name="displayasbar">
+                                        <label for="inlineRadio1"> Display As Bar </label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-8">
+                                    <div class="radio radio-inline">
+                                        <input type="radio" id="inlineRadio2" value="true" name="displayastag">
+                                        <label for="inlineRadio2"> Display As Tag </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Skill Info -->
+                        <div class="skill-type-info">
+                            <label>
+                                Skill Level
+                                <input type="text" name="skilllevel" class="form-control" placeholder="0">
+                            </label>
+                            <label>
+                                Skill Description
+                                <textarea name="skilldescription" id="check" class="form-control" placeholder=""></textarea>
+                            </label>
+                        </div>
+                        <!-- ADD MORE-->
+                        <button type="submit" class="btn"><i class="fa fa-plus"></i> Add Skill</button>
+                        <p class="font-weight-bold" style="color:red">@TempData["Category OR Skill"]</p>
+                        <p class="font-weight-bold" style="color:red">@TempData["Skills"]</p>
+
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+        <script>
+
+    function AddCategory() {
+
+            var newName = $("#newName").val();
+            $.ajax({
+
+                url: "@Url.Action("AddCategory","Edit", new { Area ="Admin"})",
+                type: "POST",
+                data: {
+                    name:newName
+                },
+                success: function (response) {
+                    console.log(response)
+                    if (response=="") {
+                        swal({
+                          title: "Alert",
+                          text: "Please, fill Category's Name!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else if (response=="sameName") {
+                        swal({
+                          title: "Alert",
+                          text: "This Category exists!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else {
+                         swal({
+                          title: "Good job",
+                          text: "You clicked the button!",
+                          icon: "success",
+                          buttons:"Aww yiss!",
+                        }).then(function(isConfirm) {
+                          if (isConfirm) {
+                            location.reload();
+                          } else {
+                            //if no clicked => do something else
+                          }
+                        });
+                    }
+
+              },
+                error: function (response) {
+              }
+            })
+    }
+
+    function AddSkill() {
+
+            var newName = $("#newNameSkill").val();
+            $.ajax({
+
+                url: "@Url.Action("AddSkills","Edit", new { Area ="Admin"})",
+                type: "POST",
+                data: {
+                    name:newName
+                },
+                success: function (response) {
+
+                    if (response=="") {
+                        swal({
+                          title: "Alert",
+                          text: "Please, fill Skill's Name!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else if (response=="sameName") {
+                        swal({
+                          title: "Alert",
+                          text: "This Skill exists!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else {
+                         swal({
+                          title: "Good job",
+                          text: "You clicked the button!",
+                          icon: "success",
+                          buttons:"Aww yiss!",
+                        }).then(function(isConfirm) {
+                          if (isConfirm) {
+                            location.reload();
+                          } else {
+                            //if no clicked => do something else
+                          }
+                        });
+                    }
+
+              },
+                error: function (response) {
+              }
+            })
+            }
+
+    function DeleteExistSkill() {
+
+        $.ajax({
+
+            url: "@Url.Action("DeleteExistSkill","Edit")",
+            type: "POST",
+            data: { name: $("#newNameSkill").val() },
+            success: function (response) {
+                 if (response=="") {
+                        swal({
+                          title: "Alert",
+                          text: "Please, fill Skill's Name!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else if (response=="noName") {
+                        swal({
+                          title: "Alert",
+                          text: "This Skill doesn't exists!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else {
+                         swal({
+                          title: "Good job",
+                          text: "You deleted the skill!",
+                          icon: "success",
+                          buttons:"OK!",
+                        }).then(function(isConfirm) {
+                          if (isConfirm) {
+                            location.reload();
+                          } else {
+                            //if no clicked => do something else
+                          }
+                        });
+                    }
+            }
+
+        });
+
+            }
+
+    function DeleteExistsCategory() {
+         $.ajax({
+
+            url: "@Url.Action("DeleteExistsCategory","Edit")",
+            type: "POST",
+            data: { name:$("#newName").val()},
+            success: function (response) {
+                 if (response=="") {
+                        swal({
+                          title: "Alert",
+                          text: "Please, fill Category's Name!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else if (response=="noName") {
+                        swal({
+                          title: "Alert",
+                          text: "This Category doesn't exists!",
+                          icon: "warning",
+                          buttons:"OK!",
+                        });
+                    }
+                    else {
+                         swal({
+                          title: "Good job",
+                          text: "You deleted the category!",
+                          icon: "success",
+                          buttons:"OK!",
+                        }).then(function(isConfirm) {
+                          if (isConfirm) {
+                            location.reload();
+                          } else {
+                            //if no clicked => do something else
+                          }
+                        });
+                    }
+            }
+
+        });
+
+    }
+
+
+    function editBioAndSkill(ID) {
+        $("#bioAndSkillModal").modal('show')
+        $.ajax({
+
+            url: '@Url.Action("editBioAndSkill","Edit")/' + ID,
+            type: 'GET',
+            success: function (response) {
+
+                $("#hiddenID").val(ID)
+                $(".yourdescriptionn").val(response.YourDescription)
+                $(".skilllevell").val(response.SkillLevel)
+                $(".displayastagg").val(response.DisplayAsTag)
+                $(".displayasbarr").val(response.DisplayAsBar)
+                 $(".categoriesName").val(response.Category)
+                 $(".typeoffskillsName").val(response.TypeOfSkill)
+                 $(".skilldescriptionn").val(response.SkillDescription)
+            },
+            error: function (response) {
+                console.error(response)
+            }
+
+        })
+    }
+
+    function saveEditBioAndSkill(ID) {
+
+        $.ajax({
+
+            url: "@Url.Action("saveEditBioAndSkill","Edit")",
+            type: "POST",
+            data: {
+                id: ID,
+                skilldescription: $(".skilldescriptionnn").val(),
+                yourdescription: $(".yourdescriptionnn").val(),
+                skilllevel: $(".skilllevelll").val(),
+                displayastag: $(".displayastaggg").val(),
+                displayasbar: $(".displayastaggg").val(),
+                categorie: $(".categoriesNamess").val(),
+                typeoffskills: $(".typeoffskillsNamess").val(),
+            },
+            success: function (response) {
+                if (response =="nullCategoryAndSkill") {
+                    swal({
+                    title: "Error!",
+                    text: "Select Category and Skill!",
+                    icon: "warning",
+                    button: "Aww yiss!",
+                    });
+                }
+
+                else {
+                    swal({
+                    title: "Good job!",
+                    text: "You clicked the button!",
+                    icon: "success",
+                    button: "Aww yiss!",
+                    });
+                    $(".addBioAndSkillListt").html(response);
+                   $("#bioAndSkillModal").modal('hide')
+                }
+
+
+            },
+            error: function (response) {
+                console.error(response)
+            }
+
+        })
+
+    }
+
+        </script>
+
+        <!-- Modal -->
+        <div class="modal" id="bioAndSkillModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" id="formForSerialize">
+                            <div>
+                                <div>
+                                    <input type="hidden" id="hiddenID" />
+                                    <textarea class="form-control yourdescriptionn yourdescriptionnn" name="YourDescription" placeholder="Write your description here"></textarea>
+                                    <div class="skills margin-top-50">
+
+                                        <!-- SKILLS -->
+                                        <h6>Add A Skill</h6>
+
+                                        <!-- Sound Engineering -->
+                                        <div class="row">
+
+                                            <!-- Categories -->
+                                            <div class="col-sm-6">
+                                                @Html.Partial("~/Areas/Admin/Views/Shared/PartialViews/CategoryViewForModal.cshtml")
+                                            </div>
+                                            <!--  Skills -->
+                                            <div class="col-sm-6 " id="dropSkillsId">
+                                                @Html.Partial("~/Areas/Admin/Views/Shared/PartialViews/TypeOfSkillsViewForModal.cshtml")
+                                            </div>
+                                        </div>
+                                        <!-- Disply Type -->
+                                        <div class="disply-type">
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <div class="radio radio-inline">
+                                                        <input type="radio" id="inlineRadio1" class="displayasbarrr" value="true" name="DisplayAsBar">
+                                                        <label for="inlineRadio1"> Display As Bar </label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-8">
+                                                    <div class="radio radio-inline">
+                                                        <input type="radio" id="inlineRadio2" class="displayastaggg" value="true" name="DisplayAsTag">
+                                                        <label for="inlineRadio2"> Display As Tag </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Skill Info -->
+                                        <div class="skill-type-info">
+                                            <label>
+                                                Skill Level
+                                                <input type="text" name="SkillLevel" class="form-control skilllevell skilllevelll" placeholder="0">
+                                            </label>
+                                            <label>
+                                                Skill Description
+                                                <textarea name="skilldescription" id="check" class="form-control skilldescriptionn skilldescriptionnn" placeholder=""></textarea>
+                                            </label>
+                                        </div>
+                                        <!-- ADD MORE-->
+                                        <p class="font-weight-bold" style="color:red">@TempData["Skills"]</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" onclick="saveEditBioAndSkill($('#hiddenID').val())" class="btn btn-primary">Edit </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+

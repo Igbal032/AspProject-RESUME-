@@ -1,0 +1,34 @@
+﻿@{
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Sign In</h5>
+                    <p style="color:green" class="font-weight-bold">@TempData["Confirm"]</p>
+
+                    <form class="form-signin" method="post" action="@Url.Action("LoginPart","Admin", new { area="Admin"})">
+                        <div class="form-label-group">
+                            <input type="text" id="inputEmail" name="email" class="form-control" placeholder="Email address Or Phone Number" required autofocus>
+                            <label for="inputEmail">Email address</label>
+                        </div>
+
+                        <div class="form-label-group">
+                            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+                            <label for="inputPassword">Password</label>
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                        <a href="@Url.Action("ForgetPassword","Admin", new { area="Admin"})" style="color:blue;">Forget the password</a>
+
+
+                        <p class="font-weight-bold" style="color:red;">@ViewBag.Login</p>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

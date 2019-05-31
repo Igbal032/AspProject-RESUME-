@@ -1,0 +1,70 @@
+2019-05-30 10:52:07.4446 FATAL    -The action 'AcademicBacgroundView' is accessible only by a child request. 
+2019-05-30 11:27:34.4413 FATAL    -The action 'AcademicBacgroundView' is accessible only by a child request. 
+2019-05-30 11:31:12.1891 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 11:32:14.5645 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 11:42:41.7703 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 11:43:33.4847 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 11:43:54.8446 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 11:44:38.2782 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 11:52:51.3053 FATAL    -The model item passed into the dictionary is of type 'AspFinalProject.Models.Entity.AcademicBackground', but this dictionary requires a model item of type 'System.Collections.Generic.IEnumerable`1[AspFinalProject.Models.Entity.AcademicBackground]'. 
+2019-05-30 12:20:22.7546 FATAL    -The action 'AcademicBacgroundView' is accessible only by a child request. 
+2019-05-30 12:23:17.0310 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:25:40.4122 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:26.0064 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:28.4786 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:29.5512 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:30.8817 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:32.1769 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:33.2866 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:30:34.4348 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 12:47:35.2946 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 13:34:56.9417 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 13:34:59.4856 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 13:35:14.1914 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 13:43:01.2786 FATAL    -Validation failed for one or more entities. See 'EntityValidationErrors' property for more details. 
+2019-05-30 13:43:13.1650 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 13:47:45.2018 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 15:47:22.1827 FATAL    - 
+2019-05-30 15:47:44.7633 FATAL    - 
+2019-05-30 15:48:05.8199 FATAL    - 
+2019-05-30 15:48:15.9656 FATAL    - 
+2019-05-30 17:37:01.5701 FATAL    - 
+2019-05-30 17:37:04.0826 FATAL    - 
+2019-05-30 18:49:50.6702 FATAL    -The parameters dictionary contains a null entry for parameter 'categories' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult saveEditBioAndSkill(System.Nullable`1[System.Int32], AspFinalProject.Models.Entity.Skills, Int32, Int32)' in 'AspFinalProject.Areas.Admin.Controllers.EditController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters 
+2019-05-30 19:08:23.3522 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 19:36:11.2883 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 19:44:37.0218 FATAL    - 
+2019-05-30 19:46:43.6230 FATAL    - 
+2019-05-30 19:50:34.2460 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 19:50:35.6433 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 19:52:41.9542 FATAL    - 
+2019-05-30 19:52:53.7791 FATAL    - 
+2019-05-30 19:52:58.1260 FATAL    -The view 'Index' or its master was not found or no view engine supports the searched locations. The following locations were searched:
+~/Views/Admin/Index.aspx
+~/Views/Admin/Index.ascx
+~/Views/Shared/Index.aspx
+~/Views/Shared/Index.ascx
+~/Views/Admin/Index.cshtml
+~/Views/Admin/Index.vbhtml
+~/Views/Shared/Index.cshtml
+~/Views/Shared/Index.vbhtml 
+2019-05-30 19:53:15.9050 FATAL    - 
+2019-05-30 19:53:23.4560 FATAL    - 
+2019-05-30 19:54:12.0990 FATAL    - 
+2019-05-30 20:08:51.3787 FATAL    -The parameters dictionary contains a null entry for parameter 'displayastag' of non-nullable type 'System.Boolean' for method 'System.Web.Mvc.ActionResult saveEditBioAndSkill(System.Nullable`1[System.Int32], System.String, System.String, Boolean, Boolean, System.String, System.Nullable`1[System.Int32], System.Nullable`1[System.Int32])' in 'AspFinalProject.Areas.Admin.Controllers.EditController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters 
+2019-05-30 20:21:08.0971 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:21:10.6605 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:21:11.8360 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:33:07.8474 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:33:09.6680 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:38:56.1548 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:38:57.7720 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 20:38:58.9757 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 21:21:56.4017 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 21:23:02.1385 FATAL    -Object reference not set to an instance of an object. 
+2019-05-30 23:46:59.3684 FATAL    - 
+2019-05-30 23:47:23.2950 FATAL    - 
+2019-05-30 23:54:28.2156 FATAL    -Value cannot be null.
+Parameter name: body 
