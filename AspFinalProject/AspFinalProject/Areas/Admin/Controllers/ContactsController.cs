@@ -63,6 +63,11 @@ namespace AspFinalProject.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
+            if (answeredMessage=="")
+            {
+
+                return Json("empty", JsonRequestBehavior.AllowGet);
+            }
             contact.Answer = answeredMessage;
             contact.isAnswered = true;
             Extention.SendMail("CV", contact.Answer, contact.FromEmail);
