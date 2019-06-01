@@ -330,6 +330,10 @@
     <Compile Include="Migrations\201905311319159_initial.Designer.cs">
       <DependentUpon>201905311319159_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201906011241458_Step1.cs" />
+    <Compile Include="Migrations\201906011241458_Step1.Designer.cs">
+      <DependentUpon>201906011241458_Step1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entity\AcademicBackground.cs" />
     <Compile Include="Models\Entity\BaseEntity.cs" />
@@ -525,6 +529,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201905311319159_initial.resx">
       <DependentUpon>201905311319159_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201906011241458_Step1.resx">
+      <DependentUpon>201906011241458_Step1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

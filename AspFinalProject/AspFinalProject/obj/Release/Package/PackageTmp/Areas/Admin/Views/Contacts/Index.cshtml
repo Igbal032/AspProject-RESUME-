@@ -41,18 +41,27 @@
                      id: ID,
                      answeredMessage: $("#AnsweredMessage").val()
                     },
-                success: function (response) {
+                 success: function (response) {
+                     if (response=="empty") {
+                          swal({
+                    title: "Wrong!!",
+                    text: "You didn't fill answer input!",
+                    icon: "warning",
+                    button: "OK!!",
+                    });
+                     }
+                    else {
                     swal({
                     title: "Good job!",
                     text: "You sent the Message!",
                     icon: "success",
-                    button: "Aww yiss!",
+                    button: "OK!",
 
                     });
                      $("#modalAnswer").modal("hide")
 
                     $("#messageTable").html(response);
-
+                     }
                 },
                 error: function (response) {
                     console.error(response)

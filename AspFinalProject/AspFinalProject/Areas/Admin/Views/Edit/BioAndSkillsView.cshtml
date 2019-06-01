@@ -8,7 +8,7 @@
         <div class="addBioAndSkillListt">
             @foreach (var item in Model)
             {
-                
+
                 <!-- HARD SKILLS -->
                 <h6>@item.Category</h6>
 
@@ -101,6 +101,7 @@
                         <!-- ADD MORE-->
                         <button type="submit" class="btn"><i class="fa fa-plus"></i> Add Skill</button>
                         <p class="font-weight-bold" style="color:red">@TempData["Category OR Skill"]</p>
+                        <p class="font-weight-bold" style="color:red">@TempData["displaybar and displaytag"]</p>
                         <p class="font-weight-bold" style="color:red">@TempData["Skills"]</p>
 
                     </div>

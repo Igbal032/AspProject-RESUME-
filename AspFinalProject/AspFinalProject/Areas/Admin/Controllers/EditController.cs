@@ -191,19 +191,18 @@ namespace AspFinalProject.Areas.Admin.Controllers
         public ActionResult addSkillsClick(Skills newSkills, int? categories, int? typeoffskillss)
         {
 
-            //if (newSkills.Category==null||newSkills.TypeOfSkill==null)
-            //{
-
-            //    TempData["Category OR Skill"] = "Please, select Category and Skill, and fill all input";
-            //    return RedirectToAction("EditPage", "Edit", new { area="Admin"});
-
-            //}
-            if (categories == null|| typeoffskillss == null)
+            if ((categories == null|| typeoffskillss == null ))
             {
 
                 TempData["Category OR Skill"] = "Please, select Category and Skill, and fill all input";
                 return RedirectToAction("EditPage", "Edit", new { area="Admin"});
 
+            }
+            if (newSkills.DisplayAsBar==false && newSkills.DisplayAsTag==false)
+            {
+
+                TempData["displaybar and displaytag"] = "Please, select DisplayBar or DisplayTag";
+                return RedirectToAction("EditPage", "Edit", new { area = "Admin" });
             }
             else if (ModelState.IsValid || typeoffskillss != null || typeoffskillss != null)
             {

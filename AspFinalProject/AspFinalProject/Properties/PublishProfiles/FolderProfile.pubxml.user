@@ -751,7 +751,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2019 11:55:35</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Contacts/Index.cshtml">
-      <publishTime>05/30/2019 23:50:46</publishTime>
+      <publishTime>06/01/2019 16:08:31</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Edit/AcademicBacgroundView.cshtml">
       <publishTime>05/31/2019 12:26:47</publishTime>
@@ -769,10 +769,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2019 12:46:03</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Edit/ProfessionDetailsView.cshtml">
-      <publishTime>05/31/2019 14:24:23</publishTime>
+      <publishTime>06/01/2019 15:51:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Edit/Social.cshtml">
-      <publishTime>06/01/2019 13:39:55</publishTime>
+      <publishTime>06/01/2019 15:42:01</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Edit/TypeOfSkillsView.cshtml">
       <publishTime>05/30/2019 19:14:33</publishTime>
@@ -814,10 +814,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2019 17:14:27</publishTime>
     </File>
     <File Include="bin/AspFinalProject.dll">
-      <publishTime>06/01/2019 13:46:48</publishTime>
+      <publishTime>06/01/2019 16:19:44</publishTime>
     </File>
     <File Include="bin/AspFinalProject.pdb">
-      <publishTime>06/01/2019 13:46:48</publishTime>
+      <publishTime>06/01/2019 16:19:44</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
@@ -1249,7 +1249,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/22/2019 11:12:05</publishTime>
     </File>
     <File Include="Views/Home/ProfessionalExperienceForResume.cshtml">
-      <publishTime>05/27/2019 13:46:42</publishTime>
+      <publishTime>06/01/2019 15:14:47</publishTime>
     </File>
     <File Include="Views/Home/ResumePage.cshtml">
       <publishTime>05/29/2019 17:09:32</publishTime>

@@ -11,8 +11,8 @@ namespace AspFinalProject.Models.Entity
         public string YourDescription { get; set; }
         public int? SkillLevel { get; set; }
         public string SkillDescription { get; set; }
-        public bool? DisplayAsBar { get; set; }
-        public bool? DisplayAsTag { get; set; }
+        public bool DisplayAsBar { get; set; }
+        public bool DisplayAsTag { get; set; }
         public  string TypeOfSkill { get; set; }
         public string Category { get; set; }
 
