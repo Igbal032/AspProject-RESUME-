@@ -326,13 +326,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201905311319159_initial.cs" />
-    <Compile Include="Migrations\201905311319159_initial.Designer.cs">
-      <DependentUpon>201905311319159_initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201906011241458_Step1.cs" />
-    <Compile Include="Migrations\201906011241458_Step1.Designer.cs">
-      <DependentUpon>201906011241458_Step1.cs</DependentUpon>
+    <Compile Include="Migrations\201906011301244_initial.cs" />
+    <Compile Include="Migrations\201906011301244_initial.Designer.cs">
+      <DependentUpon>201906011301244_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Entity\AcademicBackground.cs" />
@@ -527,11 +523,8 @@
     <Folder Include="Views\Shared\PartialViews\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201905311319159_initial.resx">
-      <DependentUpon>201905311319159_initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201906011241458_Step1.resx">
-      <DependentUpon>201906011241458_Step1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201906011301244_initial.resx">
+      <DependentUpon>201906011301244_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

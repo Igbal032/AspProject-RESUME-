@@ -221,11 +221,10 @@ D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\bin\System.Web.Helpers.xml
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\bin\System.Web.Mvc.xml
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.Migrations.initial.resources
-D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.csproj.GenerateResource.cache
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.csproj.CoreCompileInputs.cache
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.csproj.CopyComplete
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.dll
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.pdb
 D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.csprojAssemblyReference.cache
-D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.Migrations.Step1.resources
+D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.Migrations.initial.resources
+D:\Code Academy\ASP.NET\AspProjectFinal(Resume)\AspFinalProject\AspFinalProject\obj\Debug\AspFinalProject.csproj.GenerateResource.cache

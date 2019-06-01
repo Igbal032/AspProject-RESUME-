@@ -757,7 +757,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/31/2019 12:26:47</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Edit/BioAndSkillsView.cshtml">
-      <publishTime>05/31/2019 21:22:27</publishTime>
+      <publishTime>06/01/2019 16:48:57</publishTime>
     </File>
     <File Include="Areas/Admin/Views/Edit/CategoryView.cshtml">
       <publishTime>05/30/2019 19:14:36</publishTime>
@@ -814,10 +814,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2019 17:14:27</publishTime>
     </File>
     <File Include="bin/AspFinalProject.dll">
-      <publishTime>06/01/2019 16:19:44</publishTime>
+      <publishTime>06/01/2019 17:02:52</publishTime>
     </File>
     <File Include="bin/AspFinalProject.pdb">
-      <publishTime>06/01/2019 16:19:44</publishTime>
+      <publishTime>06/01/2019 17:02:52</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>10/23/2017 13:15:18</publishTime>
